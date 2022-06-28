@@ -1,6 +1,6 @@
 基于层级特征交互与增强感受野的双分支遥感图像去雾网络
 ==
-Created by Shuailing Fang, [Hang Sun](https://github.com/sunhang1986), Zhiping Dan from Department of Computer and Information, China Three Gorges University.
+Created by [Hang Sun](https://github.com/sunhang1986), Zhiping Dan from Department of Computer and Information, China Three Gorges University.
 
 Introduction
 --
