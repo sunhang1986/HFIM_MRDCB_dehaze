@@ -5,8 +5,8 @@ Created by Shuailing Fang, [Hang Sun](https://github.com/sunhang1986), Zhiping
 Introduction
 --
  本文提出了基于层级特征交互与增强感受野的双分支遥感图像去雾算法，该方法包含层级特征交互子网和多尺度信息提取子网。
-Prerequisites
 --
+Prerequisites
 + Pytorch 1.7.1
 + Python 3.6.12
 + CUDA 8.0
@@ -16,9 +16,9 @@ Test
 --
 The [Download](https://www.dropbox.com/s/k2i3p7puuwl2g59/Haze1k.zip?dl=0) path of haze1k dataset . the [Download](https://github.com/BUPTLdy/RICE_DATASET.) path of RICE dataset . 
 
-Test the model on *haze1k*:
+Test the model:
 
-` python   test.py (You need to specify the test data directory and the pre-training model directory in the test.py file)
+ python   test.py (You need to specify the test data directory and the pre-training model directory in the test.py file)
 
 ## Citation
 
