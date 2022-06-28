@@ -14,7 +14,7 @@ Prerequisites
 
 Test
 --
-The [Download](https://www.dropbox.com/s/k2i3p7puuwl2g59/Haze1k.zip?dl=0) path of haze1k dataset . the [Download](https://github.com/BUPTLdy/RICE_DATASET.) path of RICE dataset . You can  [Download](https://www.dropbox.com/s/k2i3p7puuwl2g59/Haze1k.zip?dl=0) the pre-training model through Baidu Netdisk.The extract the code is
+The [Download](https://www.dropbox.com/s/k2i3p7puuwl2g59/Haze1k.zip?dl=0) path of haze1k dataset . the [Download](https://github.com/BUPTLdy/RICE_DATASET.) path of RICE dataset . You can  [Download](https://pan.baidu.com/s/1wf2zTEm5qAtZVzIkzvLtKg) the pre-training model through Baidu Netdisk.The extract the code is xwmi
 
 Test the model:
 
