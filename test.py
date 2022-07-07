@@ -32,14 +32,16 @@ parser.add_argument('--imagenet_model', default='', type=str, help='load trained
 parser.add_argument('--rcan_model', default='', type=str, help='load trained model or not')
 args = parser.parse_args()
 
-val_dataset = os.path.join(args.data_dir, 'NTIRE2021_Test_Hazy')
+#val_dataset = os.path.join(args.data_dir, 'NTIRE2021_Test_Hazy')
+val_dataset = '/mnt/fsl/dataset_thick_mid_thin/test_thick/hazy/'
 predict_result= args.predict_result
 test_batch_size=args.test_batch_size
 
 # --- output picture and check point --- #
 if not os.path.exists(args.model_save_dir):
     os.makedirs(args.model_save_dir)
-output_dir=os.path.join(args.model_save_dir,'')
+#output_dir=os.path.join(args.model_save_dir,'')
+output_dir = '/mnt/fsl/remote_sensing_paper_rice1/output_result_github_thick'
 
 # --- Gpu device --- #
 device_ids = [Id for Id in range(torch.cuda.device_count())]
@@ -60,7 +62,7 @@ MyEnsembleNet= torch.nn.DataParallel(MyEnsembleNet, device_ids=device_ids)
 
 # --- Load the network weight --- #
 try:
-    MyEnsembleNet.load_state_dict(torch.load( 'best.pkl'))
+    MyEnsembleNet.load_state_dict(torch.load( '/mnt/fsl/remote_sensing_paper/output_result/thick_epoch804.pkl'))
     print('--- weight loaded ---')
 except:
     print('--- no weight loaded ---')
@@ -73,18 +75,19 @@ with torch.no_grad():
     imsave_dir = output_dir
     if not os.path.exists(imsave_dir):
         os.makedirs(imsave_dir)
-    for batch_idx, hazy in enumerate(val_loader):
+    for batch_idx,hazy_name in enumerate(val_loader):
         # print(len(val_loader))
         start = time.time()
-        hazy = hazy.to(device)
-        
+        hazy = hazy_name[0].to(device)
+        name = str(hazy_name[1]).split("'",2)[1]
         img_tensor = MyEnsembleNet(hazy)
 
         end = time.time()
         time_list.append((end - start))
         img_list.append(img_tensor)
 
-        imwrite(img_list[batch_idx], os.path.join(imsave_dir, str(batch_idx)+'.png'))
+        #imwrite(img_list[batch_idx], os.path.join(imsave_dir, str(batch_idx)+'.png'))
+        imwrite(img_list[batch_idx], os.path.join(imsave_dir,name))
     time_cost = float(sum(time_list) / len(time_list))
     print('running time per image: ', time_cost)
                 
