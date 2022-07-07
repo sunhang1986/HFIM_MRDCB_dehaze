@@ -1,54 +1,27 @@
-<<<<<<< HEAD
-# remote_sensing
-=======
-<<<<<<< HEAD
-# remote_sensing
-=======
-##  A Two-branch Neural Network for Non-homogeneous Dehazing via Ensemble Learning
+基于层级特征交互与增强感受野的双分支遥感图像去雾网络
+==
+Created by [Hang Sun](https://github.com/sunhang1986), Zhiping Dan from Department of Computer and Information, China Three Gorges University.
 
-This is the official PyTorch implementation of Two-branch Dehazing.  See more details in  [[report]](https://openaccess.thecvf.com/content/CVPR2021W/NTIRE/papers/Ancuti_NTIRE_2021_NonHomogeneous_Dehazing_Challenge_Report_CVPRW_2021_paper.pdf) , [[paper]](https://openaccess.thecvf.com/content/CVPR2021W/NTIRE/papers/Yu_A_Two-Branch_Neural_Network_for_Non-Homogeneous_Dehazing_via_Ensemble_Learning_CVPRW_2021_paper.pdf), [[certificates]](https://data.vision.ee.ethz.ch/cvl/ntire21/NTIRE2021awards_certificates.pdf)
+Introduction
+--
+ 本文提出了基于层级特征交互与增强感受野的双分支遥感图像去雾算法，该方法包含层级特征交互子网和多尺度信息提取子网。
+--
+Prerequisites
++ Pytorch 1.7.1
++ Python 3.6.12
++ CUDA 8.0
++ Ubuntu 18.04
 
-Our method wins runner-up award in NTIRE 2021 Non-homogeneous Dehazing Challenge.
-### Dependencies and Installation
+Test
+--
+The [Download](https://www.dropbox.com/s/k2i3p7puuwl2g59/Haze1k.zip?dl=0) path of haze1k dataset . the [Download](https://github.com/BUPTLdy/RICE_DATASET.) path of RICE dataset . You can  [Download](https://pan.baidu.com/s/1wf2zTEm5qAtZVzIkzvLtKg) the pre-training model through Baidu Netdisk.The extract the code is xwmi
 
-* python3.7
-* PyTorch >= 1.0
-* NVIDIA GPU+CUDA
-* numpy
-* matplotlib
-* tensorboardX(optional)
+Test the model:
 
-### Pretrained Weights & Dataset
-
-- Download [ImageNet pretrained weights](https://drive.google.com/file/d/1aZQyF16pziCxKlo7BvHHkrMwb8-RurO_/view?usp=sharing) and [our model weights](https://drive.google.com/file/d/1M2n6g7S5_sqPmTIAuI-IC30fhUmQr199/view?usp=sharing).
-- Download our [dataset](https://drive.google.com/drive/folders/1eeBA2V_l9-evSJ0XWhRAww6ftweq8hU_?usp=sharing)
-
-Training set is the one that we used during the competition.  Please be noted that we conduct gamma correction on NH-HAZE-2020. Test set is composed of random samples from the training set. The test set is used to provide effective training accuracy. If you want to obtain val and test accuracy on NH-HAZE-2021, please step towards the official [competition server.](https://competitions.codalab.org/competitions/28032#learn_the_details-overview)
-
-  
-#### Train
-```shell
-python train.py --data_dir data -train_batch_size 8 --model_save_dir train_result
-```
-
-#### Test
- ```shell
-python test.py --model_save_dir results
- ```
-
-
-
-## Qualitative Results
-
-Results on NTIRE 2021 NonHomogeneous Dehazing Challenge testing images:
-
-<div style="text-align: center">
-<img alt="" src="/images/test_results.png" style="display: inline-block;" />
-</div>
+ python   test.py (You need to specify the test data directory and the pre-training model directory in the test.py file)
 
 ## Citation
 
-If you use any part of this code, please kindly cite
 
 ```
 @InProceedings{Yu_2021_CVPR,
@@ -59,9 +32,3 @@ If you use any part of this code, please kindly cite
     year      = {2021},
     pages     = {193-202}
 }
-```
-
-
-
->>>>>>> 66728f3 (first)
->>>>>>> b08b827 (123)
